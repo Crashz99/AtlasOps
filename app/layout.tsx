@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AmbientBackground } from "@/components/AmbientBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body><AmbientBackground />{children}</body>
+      <body>
+        <AmbientBackground />
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
